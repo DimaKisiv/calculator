@@ -1,4 +1,4 @@
-                        
+                       
 document.querySelector('.numbers').childNodes.
     forEach(el => el.addEventListener('click', numberClick));
 document.querySelector('.operations').childNodes.
@@ -64,7 +64,10 @@ function sqrOperation() {
 
 function resultOperation(val) {
     const resultStr =  eval(display.value);
-    if (!isNaN(resultStr)) {
+    if (resultStr === Infinity) {
+        return;
+    } 
+    else {
         if (display.value != resultStr) {
             resultState = true;
         }
