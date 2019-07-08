@@ -50,7 +50,7 @@ function arithmeticOperation(val) {
 }
 
 function sqrtOperation() {
-    let resultStr = Math.sqrt(display.value);
+    const resultStr = Math.sqrt(display.value);
     if (resultStr === Infinity ||
         isNaN(resultStr)) {
         return;
@@ -62,7 +62,12 @@ function sqrtOperation() {
 function sqrOperation() {
     let numericValue = parseFloat(display.value);
     if (!isNaN(numericValue)) {
-        display.value = numericValue * numericValue;
+        const resultStr = numericValue * numericValue;
+        if (resultStr === Infinity ||
+            isNaN(resultStr)) {
+            return;
+        }
+        display.value = resultStr;
         resultState = true;
     }
 }
